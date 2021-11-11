@@ -117,6 +117,7 @@ module RailsAdmin
           current_page = page.presence || '1'
 
           versions = object.nil? ? versions_for_model(model) : object.versions
+          versions = versions.where('whodunnit IS NOT NULL')
           versions = versions.where('event LIKE ?', "%#{query}%") if query.present?
           versions = versions.reorder(sort_reverse == 'true' ? "#{sort} DESC" : sort)
           versions = all ? versions : versions.send(Kaminari.config.page_method_name, current_page).per(per_page)
