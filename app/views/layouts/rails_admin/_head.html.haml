@@ -5,3 +5,10 @@
 = csrf_meta_tag
 = stylesheet_link_tag "rails_admin/rails_admin.css", media: :all
 = javascript_include_tag "rails_admin/rails_admin.js"
+ %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=G-1XCP3S6YFP"}
+  :javascript
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1XCP3S6YFP');
